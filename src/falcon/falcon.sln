@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "falcon", "falcon\falcon.vcproj", "{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "falconPS", "falcon\falconPS.vcproj", "{53415288-6000-446A-9498-A78C810BE5DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA} = {CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}.Debug|Win32.Build.0 = Debug|Win32
+		{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}.Release|Win32.ActiveCfg = Release|Win32
+		{CA6C06DA-F005-466F-8BE4-42AA1A3AC4FA}.Release|Win32.Build.0 = Release|Win32
+		{53415288-6000-446A-9498-A78C810BE5DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53415288-6000-446A-9498-A78C810BE5DE}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

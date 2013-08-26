@@ -1,0 +1,54 @@
+// falcon.idl : falcon 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(falcon.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(78066F95-699C-47E4-91D9-85A0CB4A6D1F),
+	dual,
+	nonextensible,
+	helpstring("IBrowserStub 接口"),
+	pointer_default(unique)
+]
+interface IBrowserStub : IDispatch{
+};
+[
+	object,
+	uuid(9B66736F-A0A9-477D-BF84-CEDE7BEB0E8E),
+	dual,
+	nonextensible,
+	helpstring("IIEStub 接口"),
+	pointer_default(unique)
+]
+interface IIEStub : IDispatch{
+};
+[
+	uuid(5479AFA2-12EB-4DFF-AB70-6C673520C8D1),
+	version(1.0),
+	helpstring("falcon 1.0 类型库")
+]
+library falconLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(14EE1EED-0F93-472F-A2A6-4B3EDC7346CB),
+		helpstring("BrowserStub Class")
+	]
+	coclass BrowserStub
+	{
+		[default] interface IBrowserStub;
+	};
+	[
+		uuid(6EBDB0E5-12EC-431E-8F47-7D54A77C474A),
+		helpstring("IEStub Class")
+	]
+	coclass IEStub
+	{
+		[default] interface IIEStub;
+	};
+};

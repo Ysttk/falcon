@@ -1,0 +1,26 @@
+HKCR
+{
+	falcon.IEStub.1 = s 'IEStub Class'
+	{
+		CLSID = s '{6EBDB0E5-12EC-431E-8F47-7D54A77C474A}'
+	}
+	falcon.IEStub = s 'IEStub Class'
+	{
+		CLSID = s '{6EBDB0E5-12EC-431E-8F47-7D54A77C474A}'
+		CurVer = s 'falcon.IEStub.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6EBDB0E5-12EC-431E-8F47-7D54A77C474A} = s 'IEStub Class'
+		{
+			ProgID = s 'falcon.IEStub.1'
+			VersionIndependentProgID = s 'falcon.IEStub'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{5479AFA2-12EB-4DFF-AB70-6C673520C8D1}'
+		}
+	}
+}
