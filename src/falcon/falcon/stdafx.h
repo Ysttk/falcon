@@ -21,3 +21,6 @@
 #include <atlctl.h>
 
 using namespace ATL;
+
+
+#include <cassert>

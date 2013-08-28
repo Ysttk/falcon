@@ -242,6 +242,22 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IPage.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\IProcess.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\IStep.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcessMgr.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -273,6 +289,22 @@
 			</File>
 			<File
 				RelativePath=".\IEStub.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IPage.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IProcess.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IStep.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcessMgr.h"
 				>
 			</File>
 			<File
@@ -337,6 +369,10 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 		<File
 			RelativePath=".\ReadMe.txt"
 			>
