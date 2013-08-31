@@ -204,6 +204,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\BaseException.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\dllmain.cpp"
 				>
 				<FileConfiguration
@@ -250,7 +254,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IRepeatableStep.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\IStep.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\IUnrepeatableStep.cpp"
 				>
 			</File>
 			<File
@@ -277,12 +289,20 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\TimeoutExcp.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\BaseException.h"
+				>
+			</File>
 			<File
 				RelativePath=".\dllmain.h"
 				>
@@ -300,7 +320,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IRepeatableStep.h"
+				>
+			</File>
+			<File
 				RelativePath=".\IStep.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IUnrepeatableStep.h"
 				>
 			</File>
 			<File
@@ -317,6 +345,10 @@
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TimeoutExcp.h"
 				>
 			</File>
 		</Filter>
@@ -369,10 +401,6 @@
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\ClassDiagram1.cd"
-			>
-		</File>
 		<File
 			RelativePath=".\ReadMe.txt"
 			>
