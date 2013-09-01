@@ -24,3 +24,29 @@ HKCR
 		}
 	}
 }
+
+HKLM  
+{  
+    NoRemove SOFTWARE  
+    {  
+        NoRemove Microsoft  
+        {  
+            NoRemove Windows  
+            {  
+                NoRemove CurrentVersion  
+                {  
+                    NoRemove Explorer  
+                    {  
+                        NoRemove 'Browser Helper Objects'  
+                        {  
+                            ForceRemove {6EBDB0E5-12EC-431E-8F47-7D54A77C474A} = s 'falcon'  
+                            {  
+                                val NoExplorer = d '1'  
+                            }  
+                        }  
+                    }         
+                }  
+            }  
+        }  
+    }  
+}

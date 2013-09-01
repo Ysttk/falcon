@@ -8,8 +8,11 @@
 #include <shlobj.h>
 // CIEStub
 
+LoggerPtr rootLogger(Logger::getRootLogger());
+
 STDMETHODIMP CIEStub::SetSite(IUnknown* pUnkSite)  
    {  
+	 LOG4CXX_INFO(rootLogger, "IEStub::GetSite Called");
     if(pUnkSite!=NULL)  
     {
 		//缓存指向IWebBrowser2的指针。  
