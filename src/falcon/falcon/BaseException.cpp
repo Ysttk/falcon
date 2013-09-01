@@ -8,3 +8,4 @@ CBaseException::CBaseException(void)
 CBaseException::~CBaseException(void)
 {
 }
+

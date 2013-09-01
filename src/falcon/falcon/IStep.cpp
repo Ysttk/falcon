@@ -4,3 +4,6 @@
 IStep::IStep(void)
 {
 }
+
+IStep::~IStep(void){
+}

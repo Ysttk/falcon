@@ -28,7 +28,7 @@ public:
 	}
 	void EndBuildSteps() {
 		isCurrentBuildingSteps = false;
-		RetryNextStep();
+		ResetNextStep();
 	}
 
 	bool ResetNextStep() {
