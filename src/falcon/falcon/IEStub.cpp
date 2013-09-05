@@ -7,12 +7,54 @@
 
 #include <shlobj.h>
 // CIEStub
+#include "Iepmapi.h"
+
+#include "log4cxx/fileappender.h"^
+
 
 LoggerPtr rootLogger(Logger::getRootLogger());
+bool FirstTimeLoad = true;
+
 
 STDMETHODIMP CIEStub::SetSite(IUnknown* pUnkSite)  
    {  
-	 LOG4CXX_INFO(rootLogger, "IEStub::GetSite Called");
+	 
+	 if (FirstTimeLoad) {
+		 FirstTimeLoad = false;
+		//PropertyConfigurator::configure("C:\\log4cxx.properties");
+
+		 LOG4CXX_INFO(rootLogger, "IEStub::GetSite Called");
+		 AppenderList appenderList;
+		 appenderList = rootLogger->getAllAppenders();
+
+		 LogString logOutputFileName;
+		 int num_appender = appenderList.size();
+		 for (int i=0; i<num_appender; i++) {
+			 AppenderPtr appender = appenderList[i];
+			 Appender* appenderSelf = appender.operator->();
+			 FileAppender* fileAppender;
+			 if (fileAppender = dynamic_cast<FileAppender *>(appenderSelf)) {
+
+				logOutputFileName = fileAppender->getFile();
+				 LPWSTR lpTempDir;
+				 HRESULT hr =IEGetWriteableFolderPath(FOLDERID_InternetCache, &lpTempDir);
+				 LogString NewOutputFullPath;
+				 NewOutputFullPath = NewOutputFullPath.append(lpTempDir);
+				 NewOutputFullPath = NewOutputFullPath.append(_T("\\"));
+				 NewOutputFullPath = NewOutputFullPath.append(logOutputFileName);
+				 CoTaskMemFree(lpTempDir);
+				
+				 fileAppender->setFile(NewOutputFullPath);
+
+				 LOG4CXX_INFO(rootLogger, "New File Path altered");
+			 }
+
+		 }
+	 }	
+
+
+
+
     if(pUnkSite!=NULL)  
     {
 		//缓存指向IWebBrowser2的指针。  
