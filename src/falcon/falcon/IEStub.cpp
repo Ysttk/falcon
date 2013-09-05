@@ -9,21 +9,17 @@
 // CIEStub
 #include "Iepmapi.h"
 
-#include "log4cxx/fileappender.h"^
+#include "log4cxx/fileappender.h"
+#include "log4cxx/rollingfileappender.h"
 
 
 LoggerPtr rootLogger(Logger::getRootLogger());
 bool FirstTimeLoad = true;
 
-
-STDMETHODIMP CIEStub::SetSite(IUnknown* pUnkSite)  
-   {  
-	 
-	 if (FirstTimeLoad) {
+void AdjustOutputLogFilePathByPermission() {
+	if (FirstTimeLoad) {
 		 FirstTimeLoad = false;
-		//PropertyConfigurator::configure("C:\\log4cxx.properties");
 
-		 LOG4CXX_INFO(rootLogger, "IEStub::GetSite Called");
 		 AppenderList appenderList;
 		 appenderList = rootLogger->getAllAppenders();
 
@@ -44,16 +40,31 @@ STDMETHODIMP CIEStub::SetSite(IUnknown* pUnkSite)
 				 NewOutputFullPath = NewOutputFullPath.append(logOutputFileName);
 				 CoTaskMemFree(lpTempDir);
 				
-				 fileAppender->setFile(NewOutputFullPath);
-
+				 
+				 FileAppender* newFileAppender = new RollingFileAppender(
+					 fileAppender->getLayout(), NewOutputFullPath);
+				 AppenderPtr newAppender(newFileAppender);
+				 
+				 rootLogger->removeAppender(appender);
+				 rootLogger->addAppender(newAppender);
+				 
 				 LOG4CXX_INFO(rootLogger, "New File Path altered");
 			 }
 
 		 }
+
 	 }	
 
+}
 
 
+STDMETHODIMP CIEStub::SetSite(IUnknown* pUnkSite)  
+   {  
+	LOG4CXX_INFO(rootLogger, "SetSite Called");
+
+#ifdef ADJUST_OUTPUT_LOG_DIR
+	AdjustOutputLogFilePathByPermission();
+#endif
 
     if(pUnkSite!=NULL)  
     {
