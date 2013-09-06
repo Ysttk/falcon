@@ -40,7 +40,7 @@ END_COM_MAP()
 
 
 BEGIN_SINK_MAP(CIEStub)
-
+SINK_ENTRY_EX(1, DIID_DWebBrowserEvents2, DISPID_DOCUMENTCOMPLETE, OnDocumentComplete) 
 END_SINK_MAP()
 
 
@@ -57,6 +57,10 @@ END_SINK_MAP()
 
 public:
 	STDMETHOD(SetSite)(IUnknown * pUnkSite);  
+	void STDMETHODCALLTYPE OnDocumentComplete(IDispatch* pDisp, VARIANT* URL); 
+
+private:
+	void AdjustOutputLogFilePathByPermission();
 
 private:
 	CComPtr<IWebBrowser2> m_spWebBrowser;

@@ -32,3 +32,11 @@ using namespace ATL;
 
 using namespace log4cxx;
 using namespace log4cxx::helpers;
+
+extern LoggerPtr rootLogger;
+
+#define LOG_DEBUG(msg)	LOG4CXX_DEBUG(rootLogger, msg)
+#define LOG_INFO(msg)	LOG4CXX_INFO(rootLogger, msg)
+#define LOG_WARN(msg)	LOG4CXX_WARN(rootLogger, msg)
+#define LOG_ERROR(msg)	LOG4CXX_ERROR(rootLogger, msg)
+#define LOG_FATAL(msg)	LOG4CXX_FATAL(rootLogger, msg)
