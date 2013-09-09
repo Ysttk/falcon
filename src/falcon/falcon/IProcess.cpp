@@ -2,7 +2,9 @@
 #include "IProcess.h"
 #include "BaseException.h"
 
-IProcess::IProcess(void) : isCurrentBuildingSteps(false)
+int IProcess::GlobalIdCounter = 0;
+
+IProcess::IProcess(void) : isCurrentBuildingSteps(false), id(GlobalIdCounter++)
 {
 }
 

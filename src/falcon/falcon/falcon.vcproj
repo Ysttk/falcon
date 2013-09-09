@@ -252,6 +252,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IEPage.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\IEStub.cpp"
 				>
 			</File>
@@ -303,6 +307,10 @@
 				RelativePath=".\TimeoutExcp.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\Utils.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Í·ÎÄ¼þ"
@@ -315,6 +323,10 @@
 			</File>
 			<File
 				RelativePath=".\dllmain.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IEPage.h"
 				>
 			</File>
 			<File
@@ -359,6 +371,10 @@
 			</File>
 			<File
 				RelativePath=".\TimeoutExcp.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Utils.h"
 				>
 			</File>
 		</Filter>

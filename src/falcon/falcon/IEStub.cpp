@@ -12,6 +12,7 @@
 #include "log4cxx/fileappender.h"
 #include "log4cxx/rollingfileappender.h"
 
+#include "IEPage.h"
 
 LoggerPtr rootLogger(Logger::getRootLogger());
 
@@ -115,7 +116,7 @@ void STDMETHODCALLTYPE CIEStub::OnDocumentComplete(IDispatch* pDisp,VARIANT* pva
         hr = m_spWebBrowser->get_Document(&spDispDoc);   
         if (SUCCEEDED(hr))   
         {   
-            //查询 HTML 文档。   
+            //查询 HTML 文档。
             CComQIPtr<IHTMLDocument2> spHTMLDoc = spDispDoc;
 			CComPtr<IHTMLElement> spBody;
 			hr = spHTMLDoc->get_body(&spBody);
@@ -123,6 +124,10 @@ void STDMETHODCALLTYPE CIEStub::OnDocumentComplete(IDispatch* pDisp,VARIANT* pva
 			CComBSTR bodyContent;
 			hr = spBody->get_innerText(&bodyContent);
 			LOG_DEBUG(LogString(_T("Page Content:")).append(bodyContent));
+
+			CIEPage page(spHTMLDoc);
+
+			processMgr.ProcessPage(&page);
 		}
 	}
 }

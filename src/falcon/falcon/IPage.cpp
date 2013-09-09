@@ -4,7 +4,7 @@
 IPage::IPage(void)
 {
 }
-
 IPage::~IPage(void)
 {
 }
+

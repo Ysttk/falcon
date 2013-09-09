@@ -10,6 +10,8 @@ public:
 	IProcess(void);
 	~IProcess(void);
 
+	virtual int GetId() { return id; }
+
 	bool IsTargetPage(IPage* a_Page);
 	bool ProcessPage(IPage* a_Page);
 
@@ -48,5 +50,8 @@ private:
 	int m_NextStepRetryTimes;
 	IStep* m_NextStep;
 	int m_NextStepIndex;
+	
+	int id;
 
+	static int GlobalIdCounter;
 };

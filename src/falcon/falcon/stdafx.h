@@ -40,3 +40,5 @@ extern LoggerPtr rootLogger;
 #define LOG_WARN(msg)	LOG4CXX_WARN(rootLogger, msg)
 #define LOG_ERROR(msg)	LOG4CXX_ERROR(rootLogger, msg)
 #define LOG_FATAL(msg)	LOG4CXX_FATAL(rootLogger, msg)
+
+#include "Utils.h"
