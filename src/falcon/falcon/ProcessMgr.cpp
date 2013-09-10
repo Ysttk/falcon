@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "ProcessMgr.h"
 #include "stdlib.h"
+#include "BaseException.h"
 
 
 ProcessMgr::ProcessMgr(void)
@@ -20,8 +21,18 @@ void ProcessMgr::ProcessPage(IPage* a_Page) {
 		IProcess* process = *itr;
 		assert(process);
 		LOG_DEBUG(LogString(_T("Current process Id:"))+Int2Str((*itr)->GetId()));
-		if (process->IsTargetPage(a_Page)) {
-			process->ProcessPage(a_Page);
+		bool isTarget = false;
+		try {
+			isTarget = process->IsTargetPage(a_Page);
+		} catch (CBaseException* exception) {
+			LOG_INFO(exception->GetMessage());
+		}
+		if (isTarget) {
+			try {
+				process->ProcessPage(a_Page);
+			} catch (CBaseException* exception) {
+				LOG_INFO(exception->GetMessage());
+			}
 			return;
 		}
 	}

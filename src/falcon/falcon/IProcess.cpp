@@ -21,9 +21,9 @@ bool IProcess::ProcessPage(IPage* a_Page) {
 	try {
 		processResult = m_NextStep->ProcessPage(a_Page);
 		m_NextStepRetryTimes--;
-	} catch (...) {
+	} catch (CBaseException* exception) {
 		processResult = false;
-		//Log.Info(exception.GetMessage());
+		LOG_INFO(exception->GetMessage());
 	}
 	if (processResult) {
 		m_NextStep = m_Steps[++m_NextStepIndex];
